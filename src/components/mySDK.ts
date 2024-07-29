@@ -3,7 +3,7 @@
 import { Review, ReviewStats, VpnNodesResponse, WiFiNodesResponse } from './types';
 
 export async function getReviews(page: number = 1): Promise<Review[]> {
-  const url = `https://gateway.dev.netsepio.com/api/v1.0/getreviews?page=${page}`;
+  const url = `https://gateway.netsepio.com/api/v1.0/getreviews?page=${page}`;
   
   try {
     const response = await fetch(url);
@@ -45,7 +45,7 @@ export async function getAllReviewsAndStats(): Promise<ReviewStats> {
 
 // Function to fetch all VPN nodes
 export const getAllVPNs = async (param?: string): Promise<VpnNodesResponse> => {
-const API_URL = `${param}api/v1.0/nodes/all`;
+const API_URL = `https://gateway.erebrus.io/api/v1.0/nodes/all`;
 
   try {
     const response = await fetch(API_URL);
