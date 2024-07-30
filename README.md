@@ -19,6 +19,12 @@ npm run build
 
 npm link and npm link `sdk-028`
 
+## push in github - 
+
+npm run build
+
+npm add, commit, push
+
 ## publish - 
 
 package version change
