@@ -1,8 +1,8 @@
 // src/components/mySDK.ts
 
-import { Review, ReviewStats, VpnNodesResponse, WiFiNodesResponse } from './types';
+import { Review, ReviewStats, VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse } from './types';
 import { getReviews, getAllReviewsAndStats } from './netsepio';
-import { getAllVPNs, getAllWifi } from './erebrus';
+import { getAllVPNs, getAllWifi, subscription } from './erebrus';
 
 export class NetSepioSDK {
   async getReviews(page: number = 1): Promise<Review[]> {
@@ -20,7 +20,11 @@ export class NetSepioSDK {
   async getAllWifi(): Promise<WiFiNodesResponse> {
     return await getAllWifi();
   }
+
+  async subscription(): Promise<SubscriptionResponse> {
+    return await subscription();
+  }
 }
 
 // Re-export functions for individual use if needed
-export { getReviews, getAllReviewsAndStats, getAllVPNs, getAllWifi };
+export { getReviews, getAllReviewsAndStats, getAllVPNs, getAllWifi, subscription};

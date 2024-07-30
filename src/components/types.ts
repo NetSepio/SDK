@@ -85,3 +85,8 @@ export interface VpnNode {
   export interface WiFiNodesResponse {
     nodes: WiFiNode[];
   }
+
+  // Example type for the API response
+  export interface SubscriptionResponse {
+    id: string;
+  }
