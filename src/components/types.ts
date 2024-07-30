@@ -90,3 +90,16 @@ export interface VpnNode {
   export interface SubscriptionResponse {
     id: string;
   }
+  export interface VpnClientResponse {
+    payload: {
+      client: {
+        Name: string;
+        Address: string;
+        PresharedKey: string;
+      };
+      serverPublicKey: string;
+      endpoint: string;
+    };
+    configFile: string;
+    privateKey: string;
+  }
