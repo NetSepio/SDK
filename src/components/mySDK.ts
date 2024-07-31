@@ -21,8 +21,8 @@ export class NetSepioSDK {
     return await getAllWifi();
   }
 
-  async subscription(): Promise<SubscriptionResponse> {
-    return await subscription();
+  async subscription(auth: string): Promise<SubscriptionResponse> {
+    return await subscription(auth);
   }
   async createVpnClient(name: string, region: string, auth: string): Promise<VpnClientResponse> {
     return await createClient(name, region, auth);

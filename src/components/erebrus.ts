@@ -30,7 +30,7 @@ export const getAllWifi = async (): Promise<WiFiNodesResponse> => {
 };
 
 
-export const subscription = async (param?: string): Promise<SubscriptionResponse> => {  
+export const subscription = async (params?: string): Promise<SubscriptionResponse> => {  
   try {
     const response = await fetch(
       `https://gateway.erebrus.io/api/v1.0/subscription/trial`,
@@ -39,7 +39,7 @@ export const subscription = async (param?: string): Promise<SubscriptionResponse
         headers: {
           Accept: "application/json, text/plain, */*",
           "Content-Type": "application/json",
-          Authorization: `Bearer ${param}`,
+          Authorization: `Bearer ${params}`,
         },
       }
     );
