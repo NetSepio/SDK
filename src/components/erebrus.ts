@@ -30,7 +30,7 @@ export const getAllWifi = async (): Promise<WiFiNodesResponse> => {
 };
 
 
-export const subscription = async (params?: string): Promise<SubscriptionResponse> => {  
+export const subscribe = async (params?: string): Promise<SubscriptionResponse> => {  
   try {
     const response = await fetch(
       `https://gateway.erebrus.io/api/v1.0/subscription/trial`,
@@ -51,6 +51,32 @@ export const subscription = async (params?: string): Promise<SubscriptionRespons
     throw error;
   }
 };
+
+
+
+export const getSubscription = async (params?: string): Promise<SubscriptionResponse> => {  
+  try {
+    const response = await fetch(
+      `https://gateway.erebrus.io/api/v1.0/subscription`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${params}`,
+        },
+      }
+    );
+
+    return response.json();
+
+  } catch (error) {
+    console.error('Error fetching WiFi nodes:', error);
+    throw error;
+  }
+};
+
+
 
 export const createClient = async (
   name: string,

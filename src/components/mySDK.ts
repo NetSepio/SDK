@@ -2,7 +2,7 @@
 
 import { Review, ReviewStats, VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse , VpnClientResponse } from './types';
 import { getReviews, getAllReviewsAndStats } from './netsepio';
-import { getAllVPNs, getAllWifi, subscription ,  createClient} from './erebrus';
+import { getAllVPNs, getAllWifi, subscribe , getSubscription, createClient} from './erebrus';
 
 export class NetSepioSDK {
   async getReviews(page: number = 1): Promise<Review[]> {
@@ -21,13 +21,18 @@ export class NetSepioSDK {
     return await getAllWifi();
   }
 
-  async subscription(auth: string): Promise<SubscriptionResponse> {
-    return await subscription(auth);
+  async subscribe(auth: string): Promise<SubscriptionResponse> {
+    return await subscribe(auth);
   }
+
+  async getSubscription(auth: string): Promise<SubscriptionResponse> {
+    return await getSubscription(auth);
+  }
+
   async createVpnClient(name: string, region: string, auth: string): Promise<VpnClientResponse> {
     return await createClient(name, region, auth);
   }
 }
 
 // Re-export functions for individual use if needed
-export { getReviews, getAllReviewsAndStats, getAllVPNs, getAllWifi, subscription , createClient};
+export { getReviews, getAllReviewsAndStats, getAllVPNs, getAllWifi, subscribe , getSubscription, createClient};
