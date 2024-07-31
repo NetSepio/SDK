@@ -90,6 +90,11 @@ export interface VpnNode {
   export interface SubscriptionResponse {
     id: string;
   }
+
+  export interface ClientsResponse {
+    id: string;
+  }
+
   export interface VpnClientResponse {
     payload: {
       client: {

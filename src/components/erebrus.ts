@@ -1,11 +1,12 @@
 // src/components/erebrus.ts
 
-import { VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse , VpnClientResponse} from './types';
+import { VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse, ClientsResponse, VpnClientResponse} from './types';
 import * as crypto from 'crypto';
 import { lib, enc } from "crypto-js";
 import { generateKeyPair } from 'curve25519-js';
+import { ClientSessionOptions } from 'http2';
 
-export const getAllVPNs = async (param?: string): Promise<VpnNodesResponse> => {
+export const getAllVPNs = async (): Promise<VpnNodesResponse> => {
   const API_URL = `https://gateway.erebrus.io/api/v1.0/nodes/all`;
 
   try {
@@ -58,6 +59,29 @@ export const getSubscription = async (params?: string): Promise<SubscriptionResp
   try {
     const response = await fetch(
       `https://gateway.erebrus.io/api/v1.0/subscription`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${params}`,
+        },
+      }
+    );
+
+    return response.json();
+
+  } catch (error) {
+    console.error('Error fetching WiFi nodes:', error);
+    throw error;
+  }
+};
+
+
+export const getClients = async (params?: string): Promise<ClientsResponse> => {  
+  try {
+    const response = await fetch(
+      `https://gateway.erebrus.io/api/v1.0/erebrus/clients`,
       {
         method: "GET",
         headers: {
