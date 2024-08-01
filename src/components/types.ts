@@ -20,6 +20,10 @@ export interface ReviewStats {
     totalCount: number;
 }
 
+export interface Token {
+  id:string;
+}
+
 
 // Example types definition for the VPN nodes
 export interface VpnNode {

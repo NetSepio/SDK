@@ -1,7 +1,7 @@
 // src/components/mySDK.ts
 
-import { Review, ReviewStats, VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse , VpnClientResponse } from './types';
-import { getReviews, getAllReviewsAndStats } from './netsepio';
+import { Review, ReviewStats, Token, VpnNodesResponse, WiFiNodesResponse, SubscriptionResponse , VpnClientResponse } from './types';
+import { getReviews, getAllReviewsAndStats, getToken } from './netsepio';
 import { getAllVPNs, getAllWifi, subscribe , getSubscription, getClients, createClient} from './erebrus';
 
 export class NetSepioSDK {
@@ -11,6 +11,10 @@ export class NetSepioSDK {
 
   async getAllReviewsAndStats(): Promise<ReviewStats> {
     return await getAllReviewsAndStats();
+  }
+
+  async getToken(auth:string): Promise<Token> {
+    return await getToken(auth);
   }
 
   async getAllVPNs(): Promise<VpnNodesResponse> {
