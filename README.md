@@ -149,6 +149,25 @@ const vpnClient = await createClient('ClientName', 'US', 'auth_token');
 ```
 
 
+## Demo Implementation
+
+To help you get started with the NetSepio SDK, we've created a demo project that showcases its key features. This demo project provides practical examples of how to integrate and use the SDK in a real-world application.
+
+### Demo Project Features:
+- User authentication flow
+- Fetching and displaying security reviews
+- Interacting with VPN and WiFi nodes
+- Managing user subscriptions
+- Creating VPN clients
+
+### Accessing the Demo:
+
+You can find the demo project at the following GitHub repository:
+
+[https://github.com/netsepio/sdk-demo-project](https://github.com/Rushikeshnimkar/blog_new)
+
+
+
 <h1>Types</h1>
 
 The SDK uses TypeScript and provides several interfaces to ensure type safety:
